@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>About Me | My Portfolio</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <nav>
+    <h2>✨ My Portfolio</h2>
+    <ul>
+      <li><a href="index.html">🏠 Home</a></li>
+      <li><a href="about.html" class="active">👤 About Me</a></li>
+      <li><a href="projects.html">🛠️ My Projects</a></li>
+      <li><a href="contact.html">📬 Contact</a></li>
+    </ul>
+    <button id="themeToggle">🌙</button>
+  </nav>
+
+  <div class="content">
+    <h1>👋 About Me!</h1>
+    <p>I’m a student learning Tv-Brodcasting, Working on cool projects, and exploring new Creative Techniques.</p>
+    <p>Whether it's websites, small games, or cool animations, I love bringing creative ideas to life!</p>
+  </div>
+
+  <script>
+    const toggle = document.getElementById('themeToggle');
+
+    window.addEventListener('DOMContentLoaded', () => {
+      const savedTheme = localStorage.getItem('theme');
+      if (savedTheme === 'light') {
+        document.body.classList.add('light');
+        toggle.textContent = '☀️';
+      } else {
+        document.body.classList.remove('light');
+        toggle.textContent = '🌙';
+      }
+    });
+
+    toggle.addEventListener('click', () => {
+      if (document.body.classList.contains('light')) {
+        document.body.classList.remove('light');
+        toggle.textContent = '🌙';
+        localStorage.setItem('theme', 'dark');
+      } else {
+        document.body.classList.add('light');
+        toggle.textContent = '☀️';
+        localStorage.setItem('theme', 'light');
+      }
+    });
+  </script>
+</body>
+</html>

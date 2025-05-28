@@ -6,11 +6,68 @@
   <title>Home | My Portfolio</title>
   <link rel="icon" href="assets/favicon.png" type="image/png">
   <link rel="stylesheet" href="style.css" />
+  <style>
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 20px;
+      background: rgba(0, 0, 0, 0.3);
+    }
+
+    nav h2 {
+      margin: 0;
+    }
+
+    nav ul {
+      display: flex;
+      gap: 15px;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: white;
+    }
+
+    .nav-toggle {
+      display: none;
+      font-size: 28px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      color: white;
+    }
+
+    @media (max-width: 768px) {
+      nav ul {
+        display: none;
+        flex-direction: column;
+        background: rgba(0, 0, 0, 0.6);
+        position: absolute;
+        top: 60px;
+        right: 20px;
+        padding: 10px;
+        border-radius: 10px;
+      }
+
+      nav ul.show {
+        display: flex;
+      }
+
+      .nav-toggle {
+        display: block;
+      }
+    }
+  </style>
 </head>
 <body>
   <nav>
     <h2>✨ My Portfolio</h2>
-    <ul>
+    <button class="nav-toggle" onclick="toggleMenu()">☰</button>
+    <ul id="navLinks">
       <li><a href="index.html" class="active">🏠 Home</a></li>
       <li><a href="about.html">👤 About Me</a></li>
       <li><a href="projects.html">💻 Projects</a></li>
@@ -21,10 +78,14 @@
 
   <div class="content">
     <h1>Hi, I'm Aliel Torres</h1>
-    <p>I'm a high school student passionate about Brodcating, Short-Films, and creativity.</p>
+    <p>I'm a high school student passionate about Broadcasting, Short-Films, and creativity.</p>
   </div>
 
   <script>
+    function toggleMenu() {
+      document.getElementById("navLinks").classList.toggle("show");
+    }
+
     const toggle = document.getElementById('themeToggle');
 
     window.addEventListener('DOMContentLoaded', () => {

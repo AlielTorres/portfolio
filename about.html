@@ -6,11 +6,64 @@
   <title>About Me | My Portfolio</title>
   <link rel="icon" href="assets/favicon.png" type="image/png">
   <link rel="stylesheet" href="style.css" />
+  <style>
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 20px;
+      background: transparent;
+      position: relative;
+    }
+
+    nav h2 {
+      margin: 0;
+    }
+
+    nav ul {
+      display: flex;
+      gap: 15px;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .nav-toggle {
+      display: none;
+      font-size: 28px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      color: inherit;
+    }
+
+    @media (max-width: 768px) {
+      nav ul {
+        display: none;
+        flex-direction: column;
+        background: rgba(0, 0, 0, 0.6);
+        position: absolute;
+        top: 60px;
+        right: 20px;
+        padding: 10px;
+        border-radius: 10px;
+      }
+
+      nav ul.show {
+        display: flex;
+      }
+
+      .nav-toggle {
+        display: block;
+      }
+    }
+  </style>
 </head>
 <body>
   <nav>
     <h2>✨ My Portfolio</h2>
-    <ul>
+    <button class="nav-toggle" onclick="toggleMenu()">☰</button>
+    <ul id="navLinks">
       <li><a href="index.html">🏠 Home</a></li>
       <li><a href="about.html" class="active">👤 About Me</a></li>
       <li><a href="projects.html">💻 Projects</a></li>
@@ -27,6 +80,7 @@
 
   <script>
     const toggle = document.getElementById('themeToggle');
+    const navLinks = document.getElementById('navLinks');
 
     window.addEventListener('DOMContentLoaded', () => {
       const savedTheme = localStorage.getItem('theme');
@@ -50,6 +104,10 @@
         localStorage.setItem('theme', 'light');
       }
     });
+
+    function toggleMenu() {
+      navLinks.classList.toggle('show');
+    }
   </script>
 </body>
 </html>

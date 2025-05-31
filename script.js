@@ -1,5 +1,5 @@
 // Replace this URL with your Railway backend URL after deployment!
-const SOCKET_SERVER_URL = "https://your-railway-url.up.railway.app";
+const SOCKET_SERVER_URL = "gametest-production.up.railway.app";
 
 const socket = io(SOCKET_SERVER_URL);
 
